@@ -1,0 +1,39 @@
+create database quan_ly_sinh_vien;
+use quan_ly_sinh_vien;
+create table class(
+id_class int primary key auto_increment,
+name_class varchar(10),
+start_date date,
+status_class bool
+);
+insert into class(name_class,start_date,status_class) values('A1','2008-12-20',1);
+insert into class(name_class,start_date,status_class) values('A2','2008-12-22',1);
+insert into class(name_class,start_date,status_class) values('B3',curdate(),0);
+create table student(
+id_student int primary key auto_increment,
+name_student varchar(50),
+address varchar(50),
+phone varchar(50),
+status_student bool,
+id_class int ,
+foreign key (id_class) references class(id_class)
+);
+create table subject(
+id_sub int primary key auto_increment,
+name_Sub varchar(50),
+credit int,
+status_sub bool
+);
+create table mark(
+id_mark int primary key auto_increment,
+id_sub int,
+id_student int,
+mark int,
+exam_time int,
+foreign key (id_sub) references subject(id_sub),
+foreign key (id_student) references student(id_student)
+);
+
+
+insert into class(name_class,start_date,status_class) values(A1
+
